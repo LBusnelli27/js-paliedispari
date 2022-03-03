@@ -1,3 +1,4 @@
+// ! Start functions
 /**
  * This function check if a word is palindrome or not
  * 
@@ -46,17 +47,22 @@ function oddSumNumbers(firstNum, secondNum) {
         return false;
     }
 }
+// ! End functions
 
 
-// EventListerner for the send btn for palindrome
+// * EventListerner for the send btn for palindrome
 const btnSend = document.getElementById('btn-pali');
 btnSend.addEventListener('click', function() {
+    // Get user input word
     let inputUser = document.getElementById('input-pali');
 
+    //Check if palindrome
     let checkValue = checkPalindrome(inputUser.value.toLowerCase());
 
+    // Get result p
     let reusulPhrase = document.getElementById('result-p');
     
+    // If true is palindrome 
     if(checkValue == true) {
         reusulPhrase.innerHTML = "Complimenti, la parola e' palindroma"
     } else {
@@ -64,44 +70,58 @@ btnSend.addEventListener('click', function() {
     }
 
 
+    // Reset input value
     inputUser.value = "";
 });
 
 
 
-// EventListerner for the send btn for game odd or even
+// * EventListerner for the send btn for game odd or even
 const btnOddOrEven = document.getElementById('btn-odd-even');
 btnOddOrEven.addEventListener('click', function() {
+    // Get the input user number 
     let inputNumUser = document.getElementById('input-number');
-    if((parseIntInput(inputNumUser) > 5 || parseIntInput(inputNumUser) < 0) || (isNaN(inputNumUser.value)) ) {
+    // Check if is between 1 and 5, check if isNan
+    if((parseIntInput(inputNumUser) > 5 || parseIntInput(inputNumUser) < 1) || (isNaN(inputNumUser.value)) ) {
         inputNumUser.value = "";
         location.reload();
     }
 
+    // Save in a variable the random number number generated
     let randomComputer = randomInteger();
+
+    // Get the user selection odd or even
     let userInputSelect = document.getElementById('inputGroupSelect');
 
     
     let isOdd;
+    // Get the result paragraph
     const oddP = document.getElementById('result-odd-p');
+
+    //If for establish if is true or false
     if(oddSumNumbers(parseIntInput(inputNumUser), randomComputer) == true) {
         isOdd = true;
-        oddP.innerHTML = "Hai vintooo!"
     } else {
         isOdd = false;
-        oddP.innerHTML = "Hai presooo!"
-    }
-    
-    if(((userInputSelect.value == 1) && (isOdd == true)) || ((userInputSelect.value == 2) && (isOdd == false))) {
-        console.log('Hai vintooo');
-    } else {
-        console.log('Hai persooo');
     }
     
 
+    //Check the result with the choose of the user
+    if(((userInputSelect.value == 1) && (isOdd == true)) || ((userInputSelect.value == 2) && (isOdd == false))) {
+        console.log('Hai vintooo');
+        oddP.innerHTML = "Hai vintooo!"
+    } else {
+        console.log('Hai persooo');
+        oddP.innerHTML = "Hai presooo!"
+    }
+    
+
+    // Some console.log to check if everything is right
     console.log(`Input user: ${parseIntInput(inputNumUser)}`);
     console.log(`Random computer: ${randomComputer}`);
     console.log(`Sum: ${(parseIntInput(inputNumUser)) + (randomComputer)}`);
+
+    // Reset input number value
     inputNumUser.value = "";
 });
 
