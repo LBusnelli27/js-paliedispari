@@ -48,7 +48,7 @@ function oddSumNumbers(firstNum, secondNum) {
 }
 
 
-// EventListerner for the send btn
+// EventListerner for the send btn for palindrome
 const btnSend = document.getElementById('btn-pali');
 btnSend.addEventListener('click', function() {
     let inputUser = document.getElementById('input-pali');
@@ -69,6 +69,7 @@ btnSend.addEventListener('click', function() {
 
 
 
+// EventListerner for the send btn for game odd or even
 const btnOddOrEven = document.getElementById('btn-odd-even');
 btnOddOrEven.addEventListener('click', function() {
     let inputNumUser = document.getElementById('input-number');
@@ -78,18 +79,29 @@ btnOddOrEven.addEventListener('click', function() {
     }
 
     let randomComputer = randomInteger();
+    let userInputSelect = document.getElementById('inputGroupSelect');
+
+    
+    let isOdd;
+    const oddP = document.getElementById('result-odd-p');
+    if(oddSumNumbers(parseIntInput(inputNumUser), randomComputer) == true) {
+        isOdd = true;
+        oddP.innerHTML = "Hai vintooo!"
+    } else {
+        isOdd = false;
+        oddP.innerHTML = "Hai presooo!"
+    }
+    
+    if(((userInputSelect.value == 1) && (isOdd == true)) || ((userInputSelect.value == 2) && (isOdd == false))) {
+        console.log('Hai vintooo');
+    } else {
+        console.log('Hai persooo');
+    }
+    
+
     console.log(`Input user: ${parseIntInput(inputNumUser)}`);
     console.log(`Random computer: ${randomComputer}`);
     console.log(`Sum: ${(parseIntInput(inputNumUser)) + (randomComputer)}`);
-    console.log(`Result: ${oddSumNumbers(parseIntInput(inputNumUser), randomComputer)}`);
-
-    const oddP = document.getElementById('result-odd-p');
-    if(oddSumNumbers(parseIntInput(inputNumUser), randomComputer) == true) {
-        oddP.innerHTML = "E' pari!!!"
-    } else {
-        oddP.innerHTML = "E' dispari!!!"
-    }
-
     inputNumUser.value = "";
 });
 
