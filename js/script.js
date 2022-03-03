@@ -77,13 +77,14 @@ btnOddOrEven.addEventListener('click', function() {
         location.reload();
     }
 
+    let randomComputer = randomInteger();
     console.log(`Input user: ${parseIntInput(inputNumUser)}`);
-    console.log(`Random computer: ${randomInteger()}`);
-    console.log(`Sum: ${(parseIntInput(inputNumUser)) + (randomInteger())}`);
-    console.log(`Result: ${oddSumNumbers(parseIntInput(inputNumUser), randomInteger())}`);
+    console.log(`Random computer: ${randomComputer}`);
+    console.log(`Sum: ${(parseIntInput(inputNumUser)) + (randomComputer)}`);
+    console.log(`Result: ${oddSumNumbers(parseIntInput(inputNumUser), randomComputer)}`);
 
     const oddP = document.getElementById('result-odd-p');
-    if(oddSumNumbers(parseIntInput(inputNumUser), randomInteger()) == true) {
+    if(oddSumNumbers(parseIntInput(inputNumUser), randomComputer) == true) {
         oddP.innerHTML = "E' pari!!!"
     } else {
         oddP.innerHTML = "E' dispari!!!"
