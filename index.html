@@ -18,26 +18,32 @@
 </head>
 <body>
     <main>
+        <!-- ! Check if a word is a palimdrome -->
         <div class="row my-5">
             <h2>Palindromo? Verifica</h2>
 
+            <!-- Input word -->
             <div class="col-5">
                 <input id="input-pali" type="text" class="form-control" placeholder="Inserisci la parola">
             </div>
 
+            <!-- Btn send -->
             <div class="col-1">
                 <button id="btn-pali" type="button" class="btn btn-success">Verifica</button>
             </div>
 
+            <!-- Result of palindrome -->
             <div class="col-4 fw-bold text-warning">
                 <p id="result-p"></p>
             </div>
         </div>
         
         
+        <!-- ! Game Odd or Even with the computer -->
         <div class="row">
             <h2>Pari o Dispari? Chi vincer&aacute;?</h2>
 
+            <!-- Choose odd or even -->
             <div class="col-2">
                 <div class="input-group">
                     <select class="form-select" id="inputGroupSelect">
@@ -47,13 +53,17 @@
                 </div>
             </div>
 
+            <!-- Input user number -->
             <div class="col-2">
                 <input id="input-number" type="text" class="form-control" placeholder="Inserisci un numero da 1 a 5">
             </div>
 
+            <!-- Btn play -->
             <div class="col-1">
                 <button id="btn-odd-even" type="button" class="btn btn-success">Invia</button>
             </div>
+
+            <!-- Result of the game -->
             <div class="col-4 fw-bold text-warning">
                 <p id="result-odd-p"></p>
             </div>
@@ -61,6 +71,7 @@
     </main>
 
 
+    <!-- ? Link my script -->
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
