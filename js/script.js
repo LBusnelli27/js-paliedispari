@@ -12,8 +12,15 @@ const btnSend = document.getElementById('btn-pali');
 btnSend.addEventListener('click', function() {
     let inputUser = document.getElementById('input-pali');
 
-    let checkValue = checkPalindrome(inputUser.value);
-    console.log(checkValue);
+    let checkValue = checkPalindrome(inputUser.value.toLowerCase());
+
+    let reusulPhrase = document.getElementById('result-p');
+    
+    if(checkValue == true) {
+        reusulPhrase.innerHTML = "Complimenti, la parola e' palindroma"
+    } else {
+        reusulPhrase.innerHTML = "Mi dispiace, la parola non e' palindroma"
+    }
 
 
     inputUser.value = "";
